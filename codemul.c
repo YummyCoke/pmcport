@@ -53,7 +53,9 @@ int main() {
     pread(fd, &port6, sizeof(port6), port6_id) != sizeof(port6);
     pread(fd, &port7, sizeof(port7), port7_id) != sizeof(port7);
 
-   // __asm__("imul %rax, %rbx");
+//   __asm__("imul %rax, %rbx");
+   __asm__("imul   -0xc(%rbp),%eax");
+//   __asm__("mov %rax,%rdi");
 //    system("taskset 0x02 ./temp");
 
     pread(fd, &nport0, sizeof(nport0), port0_id) != sizeof(nport0);
@@ -65,14 +67,14 @@ int main() {
     pread(fd, &nport6, sizeof(nport6), port6_id) != sizeof(nport6);
     pread(fd, &nport7, sizeof(nport7), port7_id) != sizeof(nport7);
 
-    printf("difference value of MSR port 0: 0x%llx\n", nport0-port0);
-    printf("difference value of MSR port 1: 0x%llx\n", nport1-port1);
-    printf("difference value of MSR port 2: 0x%llx\n", nport2-port2);
-    printf("difference value of MSR port 3: 0x%llx\n", nport3-port3);
-    printf("difference value of MSR port 4: 0x%llx\n", nport4-port4);
-    printf("difference value of MSR port 5: 0x%llx\n", nport5-port5);
-    printf("difference value of MSR port 6: 0x%llx\n", nport6-port6);
-    printf("difference value of MSR port 7: 0x%llx\n", nport7-port7);
+    printf("difference value of MSR port 0: 0x%llx\n", nport0-port0-0x15);
+    printf("difference value of MSR port 1: 0x%llx\n", nport1-port1-0x48);
+    printf("difference value of MSR port 2: 0x%llx\n", nport2-port2-0x1f);
+    printf("difference value of MSR port 3: 0x%llx\n", nport3-port3-0x10);
+    printf("difference value of MSR port 4: 0x%llx\n", nport4-port4-0x8);
+    printf("difference value of MSR port 5: 0x%llx\n", nport5-port5-0x1d);
+    printf("difference value of MSR port 6: 0x%llx\n", nport6-port6-0x68);
+    printf("difference value of MSR port 7: 0x%llx\n", nport7-port7-0x8);
 
     printf ("\n ========================== \n   count again... \n ========================== \n");
 

@@ -47,7 +47,7 @@ int main() {
     pread(fd, &port1, sizeof(port1), port1_id) != sizeof(port1);
     __asm__("imul %rax, %rbx");
     __asm__("imul %rax, %rbx");
-    __asm__("imul %rax, %rbx");
+    system("taskset 0x02 ./temp");
     pread(fd, &nport1, sizeof(nport1), port1_id) != sizeof(nport1);
     printf("difference value of MSR port 1: 0x%llx\n", nport1-port1);
 
